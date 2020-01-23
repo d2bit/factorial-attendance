@@ -1,0 +1,53 @@
+<html>
+<head>
+<style>
+.title {
+  margin: 0;
+  margin-bottom: 16px;
+  padding: 0;
+  text-align: center;
+  font-size: 30px;
+}
+
+form {
+  margin: 0;
+  margin-block-end: 0;
+  font-size: 15px;
+}
+form > * {
+  margin: 8px 0;
+}
+form * {
+  font-size: inherit;
+}
+
+.shift {
+  display: flex;
+  justify-content: space-evenly;
+}
+.shift > .separator {
+  margin: auto 8px;
+}
+
+.submitBtn {
+  background-color: limegreen;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: white;
+  font-weight: 600;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<script src="popup.js"></script>
+<body>
+  <form>
+    <h1 class="title">factorial attendance</h1>
+    <div class="shifts">
+    </div>
+    <input type="submit" value="Fill shifts!" class="submitBtn" />
+  </form>
+</body>
+</html>
