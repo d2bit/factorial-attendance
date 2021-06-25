@@ -114,7 +114,7 @@ function updateFactorialShifts() {
       .then(periods => {
         periods.forEach(
           ({ id: periodId, employee_id: employeeId, state, distribution }) => {
-            if (state !== "pending") return;
+            if (!['pending', 'in_progress'].includes(state)) return;
 
             let change = 0;
             request(
