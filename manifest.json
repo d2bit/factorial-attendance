@@ -3,23 +3,25 @@
   "version": "1.0",
   "description": "Autofills Factorial attendance shiflts",
   "background": {
-    "scripts": ["background.js"]
+    "service_worker": "background.js",
+    "type": "module"
   },
-  "page_action" :
-  {
-    "default_icon" : "icon-32.png",
-    "default_title" : "Autofill factorial attendance shifts",
+  "action": {
+    "default_icon": "icon-32.png",
+    "default_title": "Autofill factorial attendance shifts",
     "default_popup": "popup.html"
   },
-  "permissions" : [
+  "permissions": [
     "declarativeContent",
     "tabs",
-    "webRequest",
+    "webRequest"
+  ],
+  "host_permissions": [
     "*://*.factorialhr.com/"
   ],
-  "icons" : {
-    "32" : "icon-32.png",
-    "128" : "icon-128.png"
+  "icons": {
+    "32": "icon-32.png",
+    "128": "icon-128.png"
   },
-  "manifest_version": 2
+  "manifest_version": 3
 }
