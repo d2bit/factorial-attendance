@@ -157,9 +157,15 @@ function updateFactorialShifts() {
                 );
                 if (change > 0) chrome.tabs.reload(tabs[0].id);
                 window.close();
+              })
+              .catch((error) => {
+                console.log(error);
               });
           }
         );
+      })
+      .catch((error) => {
+        console.log(error);
       });
   });
 }
