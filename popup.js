@@ -83,7 +83,6 @@ function request(url, config = { method: "GET", body: null, referrer: null }) {
       "accept-language": "en-US,en;q=0.9,ca;q=0.8,es;q=0.7",
       "cache-control": "no-cache",
       "content-type": "application/json;charset=UTF-8",
-      pragma: "no-cache",
       "sec-fetch-mode": "cors",
       "sec-fetch-site": "same-site"
     },
