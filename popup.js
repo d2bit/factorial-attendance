@@ -1,4 +1,3 @@
-var debug = false;
 document.addEventListener("DOMContentLoaded", function() {
   loadShiftInfo();
   const form = document.querySelector("form");
@@ -125,15 +124,29 @@ function updateFactorialShifts() {
                 await Promise.all(
                   days.map(async day => {
                     const alreadyFilled = distribution[day.day - 1] > 0;
-                    if (!day.is_laborable || day.is_leave || alreadyFilled)
+
+                    if (alreadyFilled) {
+                      console.log(`Skipping ${day.date}, already filled`);
                       return;
+                    }
+
+                    if (!day.is_laborable) {
+                      console.log(`Skipping ${day.date}, not laborable`);
+                      return;
+                    }
+
+                    if (day.is_leave) {
+                      console.log(`Skipping ${day.date}, is leave`);
+                      return;
+                    }
+
                     if (isFutureDate(day.date)) {
+                      console.log(`Skipping ${day.date}, is future date`);
                       return;
                     }
-                    if (debug) {
-                      console.log(day.date);
-                      return;
-                    }
+
+                    console.log(`Updating ${day.date}`);
+
                     change += 1;
                     return await Promise.all(
                       shifts.map(([clockIn, clockOut]) => {
@@ -150,13 +163,20 @@ function updateFactorialShifts() {
                             body: JSON.stringify(body),
                             referrer: url
                           }
-                        );
+                        ).catch((error) => {
+                          console.log(`Updating ${day.date} failed`, error)
+                        });;
                       })
                     );
                   })
                 );
-                if (change > 0) chrome.tabs.reload(tabs[0].id);
-                window.close();
+                if (change > 0) {
+                  chrome.tabs.reload(tabs[0].id);
+                } else {
+                  console.log("No changes");
+                }
+
+                // window.close();
               })
               .catch((error) => {
                 console.log(error);
