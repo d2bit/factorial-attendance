@@ -1,0 +1,19 @@
+{
+  "name": "popup",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vite build && cp dist/assets/index*.js ../popup.js && cp dist/assets/index*.css ../popup.css"
+  },
+  "dependencies": {
+    "solid-js": "^1.8.5"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "vite-plugin-solid": "^2.7.2"
+  }
+}
