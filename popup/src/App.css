@@ -1,0 +1,45 @@
+body {
+  margin: 8px;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  justify-content: center;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 16px;
+  padding: 0;
+  text-align: center;
+  font-size: 30px;
+}
+
+.shifts {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.btn {
+  margin-top: 16px;
+  background-color: limegreen;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: white;
+  font-weight: 600;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="number"] {
+  width: 40px;
+  margin-left: 16px;
+}
+
+input[type="checkbox"] {
+  margin-left: 16px;
+}

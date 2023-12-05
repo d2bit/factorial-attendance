@@ -1,0 +1,10 @@
+version: "3.6"
+services:
+  app:
+    image: node:16.18-alpine
+    volumes:
+      - .:/app
+    working_dir: /app/popup
+    ports:
+      - "8080:5173"
+    command: ["npm", "run", "dev"]
